@@ -1,6 +1,6 @@
 class Phrase {
     constructor(phrase) {
-        this.phrase = phrase;
+        this.phrase = phrase.toLowerCase();
     }
 
     addPhraseToDisplay() {
@@ -8,6 +8,16 @@ class Phrase {
         phraseDiv.id = 'phrase';
         phraseDiv.class = 'section';
         const phraseUl = document.createElement('ul');
+        const characters = this.phrase.split();
+        for (let i = 0; i < characters.length; i++) {
+            const li = document.createElement('li');
+            if (characters[i] === ' ') {
+                li.class = 'space';
+            } else {
+                li.classList.add('hide', 'letter', characters[i]);
+            }
+            phraseUl.appendChild(li);
+        }
         phraseDiv.appendChild(phraseUl);
     }
 
