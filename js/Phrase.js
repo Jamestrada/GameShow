@@ -21,8 +21,11 @@ class Phrase {
         phraseDiv.appendChild(phraseUl);
     }
 
-    checkLetter() {
-
+    checkLetter(letter) {
+        if (this.phrase.indexOf(letter) >= 0) {
+            return true;
+        }
+        return false;
     }
 
     showMatchedLetter() {
