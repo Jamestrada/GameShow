@@ -28,7 +28,13 @@ class Phrase {
         return false;
     }
 
-    showMatchedLetter() {
-        
+    showMatchedLetter(letter) {
+        const lis = document.querySelectorAll('li.letter');
+        for (const li of lis) {
+            if (li.textContent === letter.toLowerCase()) {
+                li.classList.remove('hide');
+                li.classList.add('show');
+            }
+        }
     }
 }
