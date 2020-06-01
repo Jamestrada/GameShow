@@ -1,15 +1,14 @@
 class Game {
-    phrases = this.createPhrases();
     constructor() {
-        // this.missed = 0;
+        this.missed = 0;
 
-        // this.phrases = createPhrases();
+        this.phrases = [];
 
-        // this.activePhrase = null;
+        this.activePhrase = null;
     }
 
     createPhrases() {
-        return ['This is life', 'I need you now', 'Love does not exist', 'There is a God', 'Cold weather'];
+        return [new Phrase('This is life'), new Phrase('I need you now'), new Phrase('Love does not exist'), new Phrase('There is a God'), new Phrase('Cold weather')];
     };
 
     startGame() {
