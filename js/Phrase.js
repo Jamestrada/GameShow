@@ -8,7 +8,7 @@ class Phrase {
         phraseDiv.id = 'phrase';
         phraseDiv.class = 'section';
         const phraseUl = document.createElement('ul');
-        const characters = this.phrase.split();
+        const characters = this.phrase.split('');
         for (let i = 0; i < characters.length; i++) {
             const li = document.createElement('li');
             if (characters[i] === ' ') {

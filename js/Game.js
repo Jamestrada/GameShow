@@ -2,7 +2,7 @@ class Game {
     constructor() {
         this.missed = 0;
 
-        this.phrases = [];
+        this.phrases = this.createPhrases();
 
         this.activePhrase = null;
     }
@@ -16,8 +16,8 @@ class Game {
     }
 
     getRandomPhrase() {
-        const getRandom = Math.floor(Math.random() * this.phrases.length);
-        return this.phrases[getRandom];
+        const randomPhrase = Math.floor(Math.random() * this.phrases.length);
+        return this.phrases[randomPhrase];
     }
 
     handleInteraction() {
