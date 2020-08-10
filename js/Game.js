@@ -12,7 +12,7 @@ class Game {
     };
 
     startGame() {
-
+        // Will start the game
     }
 
     getRandomPhrase() {
