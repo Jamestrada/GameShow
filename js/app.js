@@ -1,30 +1,32 @@
-// const game = new Game();
-// const startGame = game.startGame();
+let game;
+const button = document.querySelector('#btn__reset');
+const keyboard = document.querySelector('#qwerty');
+const keys = keyboard.querySelectorAll('.key');
 
-// game.addEventListener(startGame, () => {
+/**
+* Starts a new game
+*/
+button.addEventListener('click', () => {
+    game = new Game();
+    game.startGame();
+})
 
-// });
+/**
+* Lets players use the onscreen keyboard to enter guesses
+*/
+keyboard.addEventListener('click', (e) => {
+    if (e.target.classList.contains('key')) {
+        game.handleInteraction(e.target);
+    }
+})
 
-// const phrase = new Phrase('Life is like a box of chocolates');
-// console.log(`Phrase - phrase: ${phrase.phrase}`);
-
-// const game = new Game();
-// game.phrases.forEach((phrase, index) => {
-//     console.log(`Phrase ${index} - phrase: ${phrase.phrase}`);
-// });
-
-// const logPhrase = (phrase) => {
-//     console.log(`Phrase = phrase: `, phrase.phrase);
-// };
-// const game = new Game();
-// logPhrase(game.getRandomPhrase());
-// logPhrase(game.getRandomPhrase());
-// logPhrase(game.getRandomPhrase());
-// logPhrase(game.getRandomPhrase());
-// logPhrase(game.getRandomPhrase());
-const game = new Game();
-game.getRandomPhrase().addPhraseToDisplay();
-// const startButton = document.getElementById('btn__reset');
-// startButton.addEventListener('click', () => {
-//     game.startGame();
-// });
+/**
+* Lets players use their physical keyboard to enter guesses
+*/
+document.addEventListener('keydown', (e) => {
+    keys.forEach(key => {
+        if (key.disabled === false && key.textContent === e.key) {
+            game.handleInteraction(key);
+        }
+    });
+});
